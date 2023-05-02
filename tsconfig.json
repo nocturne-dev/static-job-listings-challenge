@@ -1,3 +1,11 @@
 {
+  "compilerOptions": {
+    "importsNotUsedAsValues": "error",
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  },
   "extends": "astro/tsconfigs/strict"
 }

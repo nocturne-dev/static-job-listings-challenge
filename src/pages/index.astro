@@ -2,10 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import type { Company } from "../models/Companies.model";
+import json from "../../data.json";
 
-const data: Company[] = await fetch("http://localhost:3000/data.json")
-  .then((res) => res.json())
-  .catch((err) => console.error(err));
+const companies: Company[] = json.map((company) => ({
+  isNew: company.new,
+  isFeatured: company.featured,
+  ...company,
+}));
 ---
 
 <Layout title="Frontend Mentor | Job Listings">
@@ -18,8 +21,8 @@ const data: Company[] = await fetch("http://localhost:3000/data.json")
     </p>
     <ul role="list" class="link-card-grid">
       {
-        !!data &&
-          data.map((something: Company) => (
+        !!companies &&
+          companies.map((something: Company) => (
             <li>
               <Card {...something} />
             </li>
