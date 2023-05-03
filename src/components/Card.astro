@@ -1,51 +1,7 @@
 ---
-import type { Company } from "../models/Companies.model";
 
-type Props = Company;
-
-const {
-  company,
-  logo,
-  isNew,
-  isFeatured,
-  position,
-  postedAt,
-  contract,
-  location,
-  role,
-  level,
-  languages,
-  tools,
-} = Astro.props;
 ---
 
 <section>
-  <figure>
-    <img src={logo} alt={company} />
-  </figure>
-
-  <article>
-    <h1>{company}</h1>
-    {isNew && <p>NEW!</p>}
-    {isFeatured && <p>FEATURED</p>}
-  </article>
-
-  <article>
-    <p>{position}</p>
-  </article>
-
-  <article>
-    <p>{postedAt}</p>
-    <p>{contract}</p>
-    <p>{location}</p>
-  </article>
-
-  <hr />
-
-  <article>
-    <p>{role}</p>
-    <p>{level}</p>
-    {languages.map((language) => <p>{language}</p>)}
-    {tools.map((tool) => <p>{tool}</p>)}
-  </article>
+  <slot />
 </section>
