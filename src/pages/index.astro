@@ -1,28 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Company, {
-  type Props as CompanyProps,
-} from "../components/Company.astro";
-import json from "../../data.json";
+// import Company, {
+//   type Props as CompanyProps,
+// } from "../components/Company.astro";
+// import json from "../../data.json";
 
-const companies: CompanyProps[] = json.map((company) => ({
-  isNew: company.new,
-  isFeatured: company.featured,
-  ...company,
-}));
+// const companies: CompanyProps[] = json.map((company) => ({
+//   isNew: company.new,
+//   isFeatured: company.featured,
+//   ...company,
+// }));
 ---
 
 <Layout title="Frontend Mentor | Job Listings">
   <main class="font-League_Spartan">
     <ul>
-      {
+      <!-- {
         !!companies &&
           companies.map((something: CompanyProps) => (
             <li>
               <Company {...something} />
             </li>
           ))
-      }
+      } -->
     </ul>
   </main>
 </Layout>
