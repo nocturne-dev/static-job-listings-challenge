@@ -33,30 +33,32 @@ const {
 } = Astro.props;
 ---
 
-<Card>
-  <figure>
-    <img src={logo} alt={company} />
+<Card {isFeatured}>
+  <figure
+    class="absolute -top-6 max-w-[48px] md:relative md:top-0 md:max-w-[88px]"
+  >
+    <img class="w-full rounded-full" src={logo} alt={company} />
   </figure>
 
-  <article>
+  <article class="grid grid-flow-col">
     <h1>{company}</h1>
     {isNew && <p>NEW!</p>}
     {isFeatured && <p>FEATURED</p>}
   </article>
 
-  <article>
+  <article class="mt-4">
     <p>{position}</p>
   </article>
 
-  <article>
+  <article class="mt-5 grid grid-flow-col">
     <p>{postedAt}</p>
     <p>{contract}</p>
     <p>{location}</p>
   </article>
 
-  <hr />
+  <hr class="mt-6" />
 
-  <article>
+  <article class="mt-4 grid grid-flow-col">
     <p>{role}</p>
     <p>{level}</p>
     {languages.map((language) => <p>{language}</p>)}

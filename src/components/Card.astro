@@ -1,7 +1,17 @@
 ---
+export type Props = {
+  isFeatured: boolean;
+};
 
+const { isFeatured } = Astro.props;
 ---
 
-<section>
+<section
+  class={`
+    ${isFeatured && "border-l-4 border-desaturated-dark-cyan pl-5 md:pl-9"} 
+    ${!isFeatured && "pl-6 md:pl-10"}
+    relative pr-6 pb-6 pt-8 md:py-8
+  `}
+>
   <slot />
 </section>
