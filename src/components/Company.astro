@@ -40,28 +40,67 @@ const {
     <img class="w-full rounded-full" src={logo} alt={company} />
   </figure>
 
-  <article class="grid grid-flow-col">
-    <h1>{company}</h1>
-    {isNew && <p>NEW!</p>}
-    {isFeatured && <p>FEATURED</p>}
+  <article class="grid auto-cols-max grid-flow-col items-center gap-x-6 min-w-[280px]">
+    <h1 class="py-2 text-[10px] text-desaturated-dark-cyan">{company}</h1>
+
+    {
+      (isNew || isFeatured) && (
+        <div class="grid auto-cols-max grid-flow-col items-center gap-x-2">
+          {isNew && (
+            <p class="justify-self-start rounded-3xl bg-desaturated-dark-cyan p-2 text-[10px] text-white">
+              NEW!
+            </p>
+          )}
+          {isFeatured && (
+            <p class="justify-self-start rounded-3xl bg-very-dark-grayish-cyan p-2 text-[10px] text-white">
+              FEATURED
+            </p>
+          )}
+        </div>
+      )
+    }
   </article>
 
-  <article class="mt-4">
-    <p>{position}</p>
+  <article class="mt-4 min-w-[280px]">
+    <p class="text-[10px] text-very-dark-grayish-cyan">{position}</p>
   </article>
 
-  <article class="mt-5 grid grid-flow-col">
-    <p>{postedAt}</p>
-    <p>{contract}</p>
-    <p>{location}</p>
+  <article
+    class="justify-content-start mt-5 grid auto-cols-max grid-flow-col gap-x-3 min-w-[280px]"
+  >
+    <p class="text-[10px] text-dark-grayish-cyan">{postedAt}</p>
+    <p class="text-[10px] text-dark-grayish-cyan">&middot;</p>
+    <p class="text-[10px] text-dark-grayish-cyan">{contract}</p>
+    <p class="text-[10px] text-dark-grayish-cyan">&middot;</p>
+    <p class="text-[10px] text-dark-grayish-cyan">{location}</p>
   </article>
 
-  <hr class="mt-6" />
+  <hr class="mt-6 min-w-[280px]" />
 
-  <article class="mt-4 grid grid-flow-col">
-    <p>{role}</p>
-    <p>{level}</p>
-    {languages.map((language) => <p>{language}</p>)}
-    {tools.map((tool) => <p>{tool}</p>)}
+  <article class="mt-4 grid auto-cols-max grid-flow-col gap-x-4 min-w-[280px]">
+    <p
+      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan"
+    >
+      {role}
+    </p>
+    <p
+      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan"
+    >
+      {level}
+    </p>
+    {
+      languages.map((language) => (
+        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan">
+          {language}
+        </p>
+      ))
+    }
+    {
+      tools.map((tool) => (
+        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan">
+          {tool}
+        </p>
+      ))
+    }
   </article>
 </Card>

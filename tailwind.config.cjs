@@ -19,6 +19,10 @@ module.exports = {
         League_Spartan: ["League Spartan", ...defaultTheme.fontFamily.sans],
       },
 
+      fontSize: {
+        standard: "15px",
+      },
+
       screens: {
         mobile: "375px",
         desktop: "1440px",
