@@ -40,19 +40,21 @@ const {
     <img class="w-full rounded-full" src={logo} alt={company} />
   </figure>
 
-  <article class="grid auto-cols-max grid-flow-col items-center gap-x-6 min-w-[280px]">
-    <h1 class="py-2 text-[10px] text-desaturated-dark-cyan">{company}</h1>
+  <article class="grid auto-cols-max grid-flow-col items-center gap-x-6">
+    <h1 class="py-2 text-base leading-none text-desaturated-dark-cyan">
+      {company}
+    </h1>
 
     {
       (isNew || isFeatured) && (
         <div class="grid auto-cols-max grid-flow-col items-center gap-x-2">
           {isNew && (
-            <p class="justify-self-start rounded-3xl bg-desaturated-dark-cyan p-2 text-[10px] text-white">
+            <p class="justify-self-start rounded-2xl bg-desaturated-dark-cyan p-2 text-base leading-none text-white">
               NEW!
             </p>
           )}
           {isFeatured && (
-            <p class="justify-self-start rounded-3xl bg-very-dark-grayish-cyan p-2 text-[10px] text-white">
+            <p class="justify-self-start rounded-2xl bg-very-dark-grayish-cyan p-2 text-base leading-none text-white">
               FEATURED
             </p>
           )}
@@ -61,43 +63,43 @@ const {
     }
   </article>
 
-  <article class="mt-4 min-w-[280px]">
-    <p class="text-[10px] text-very-dark-grayish-cyan">{position}</p>
+  <article class="mt-4">
+    <p class="text-base leading-none text-very-dark-grayish-cyan">{position}</p>
   </article>
 
   <article
-    class="justify-content-start mt-5 grid auto-cols-max grid-flow-col gap-x-3 min-w-[280px]"
+    class="justify-content-start mt-5 grid auto-cols-max grid-flow-col gap-x-3"
   >
-    <p class="text-[10px] text-dark-grayish-cyan">{postedAt}</p>
-    <p class="text-[10px] text-dark-grayish-cyan">&middot;</p>
-    <p class="text-[10px] text-dark-grayish-cyan">{contract}</p>
-    <p class="text-[10px] text-dark-grayish-cyan">&middot;</p>
-    <p class="text-[10px] text-dark-grayish-cyan">{location}</p>
+    <p class="text-base leading-none text-dark-grayish-cyan">{postedAt}</p>
+    <p class="text-base leading-none text-dark-grayish-cyan">&middot;</p>
+    <p class="text-base leading-none text-dark-grayish-cyan">{contract}</p>
+    <p class="text-base leading-none text-dark-grayish-cyan">&middot;</p>
+    <p class="text-base leading-none text-dark-grayish-cyan">{location}</p>
   </article>
 
-  <hr class="mt-6 min-w-[280px]" />
+  <hr class="mt-6" />
 
-  <article class="mt-4 grid auto-cols-max grid-flow-col gap-x-4 min-w-[280px]">
+  <article class="mt-4 grid grid-flow-col grid-cols-[repeat(auto-fill,56px)] gap-4">
     <p
-      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan"
+      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan"
     >
       {role}
     </p>
     <p
-      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan"
+      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan"
     >
       {level}
     </p>
     {
       languages.map((language) => (
-        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan">
+        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan">
           {language}
         </p>
       ))
     }
     {
       tools.map((tool) => (
-        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-[10px] text-desaturated-dark-cyan">
+        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan">
           {tool}
         </p>
       ))

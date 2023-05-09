@@ -14,7 +14,7 @@ const companies: CompanyProps[] = json.map((company) => ({
 
 <Layout title="Frontend Mentor | Job Listings">
   <main class="overflow-hidden font-League_Spartan">
-    <ul class="mx-6 mt-14 grid md:mt-[75px]">
+    <ul class="mt-14 grid md:mt-[75px]">
       <!-- {
         !!companies &&
           companies.map((something: CompanyProps) => (
@@ -25,7 +25,7 @@ const companies: CompanyProps[] = json.map((company) => ({
       } -->
       {
         !!companies && (
-          <li class="min-w-[325px] w-[calc(325vw / 375)]">
+          <li class="mx-auto min-w-[325px] w-[calc(325vw/3.75)]">
             <Company {...companies[0]} />
           </li>
         )
