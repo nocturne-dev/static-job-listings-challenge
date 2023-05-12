@@ -35,73 +35,87 @@ const {
 
 <Card {isFeatured}>
   <figure
-    class="absolute -top-6 max-w-[48px] md:relative md:top-0 md:max-w-[88px]"
+    class="absolute -top-6 max-w-[48px] md:relative md:top-0 md:max-w-[134px] md:place-self-center"
   >
-    <img class="w-full rounded-full" src={logo} alt={company} />
+    <img class="w-screen rounded-full" src={logo} alt={company} />
   </figure>
 
-  <article class="grid auto-cols-max grid-flow-col gap-x-6">
-    <h1
-      class="items-center py-[10px] text-base leading-none text-desaturated-dark-cyan"
-    >
-      {company}
-    </h1>
+  <article class="grid gap-y-[15px] md:gap-y-3">
+    <section class="grid auto-cols-max grid-flow-col gap-x-6">
+      <h1
+        class="items-center py-[10px] text-base leading-none text-desaturated-dark-cyan md:items-start md:text-lg"
+      >
+        {company}
+      </h1>
 
-    {
-      (isNew || isFeatured) && (
-        <div class="grid auto-cols-max grid-flow-col items-center gap-x-2">
-          {isNew && (
-            <p class="rounded-2xl bg-desaturated-dark-cyan p-[10px] text-base leading-none text-white">
-              New!
-            </p>
-          )}
-          {isFeatured && (
-            <p class="rounded-2xl bg-very-dark-grayish-cyan p-[10px] text-base leading-none text-white">
-              Featured
-            </p>
-          )}
-        </div>
-      )
-    }
+      {
+        (isNew || isFeatured) && (
+          <div class="grid auto-cols-max grid-flow-col items-center gap-x-2 md:items-start">
+            {isNew && (
+              <p class="rounded-2xl bg-desaturated-dark-cyan p-[10px] text-base leading-none text-white md:rounded-3xl md:p-2 md:text-lg">
+                New!
+              </p>
+            )}
+            {isFeatured && (
+              <p class="rounded-2xl bg-very-dark-grayish-cyan p-[10px] text-base leading-none text-white md:rounded-3xl md:p-2 md:text-lg">
+                Featured
+              </p>
+            )}
+          </div>
+        )
+      }
+    </section>
+
+    <section>
+      <h2 class="text-base leading-none text-very-dark-grayish-cyan md:text-lg">
+        {position}
+      </h2>
+    </section>
+
+    <section class="mt-[6px] grid auto-cols-max grid-flow-col gap-x-3">
+      <p class="text-base leading-none text-dark-grayish-cyan md:text-lg">
+        {postedAt}
+      </p>
+      <p class="text-base leading-none text-dark-grayish-cyan md:text-lg">
+        &middot;
+      </p>
+      <p class="text-base leading-none text-dark-grayish-cyan md:text-lg">
+        {contract}
+      </p>
+      <p class="text-base leading-none text-dark-grayish-cyan md:text-lg">
+        &middot;
+      </p>
+      <p class="text-base leading-none text-dark-grayish-cyan md:text-lg">
+        {location}
+      </p>
+    </section>
   </article>
 
-  <article class="mt-4">
-    <h2 class="text-base leading-none text-very-dark-grayish-cyan">{position}</h2>
-  </article>
+  <hr class="mt-6 md:m-0 md:hidden" />
 
   <article
-    class="justify-content-start mt-5 grid auto-cols-max grid-flow-col gap-x-3"
+    class="mt-4 flex flex-row flex-wrap content-start gap-4 md:mt-0 md:content-center md:justify-end md:text-end"
   >
-    <p class="text-base leading-none text-dark-grayish-cyan">{postedAt}</p>
-    <p class="text-base leading-none text-dark-grayish-cyan">&middot;</p>
-    <p class="text-base leading-none text-dark-grayish-cyan">{contract}</p>
-    <p class="text-base leading-none text-dark-grayish-cyan">&middot;</p>
-    <p class="text-base leading-none text-dark-grayish-cyan">{location}</p>
-  </article>
-
-  <hr class="mt-6" />
-
-  <article class="mt-4 flex flex-wrap gap-4">
     <p
-      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan"
+      class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan"
     >
       {role}
     </p>
     <p
-      class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan"
+      class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan"
     >
       {level}
     </p>
     {
       languages.map((language) => (
-        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan">
+        <p class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan">
           {language}
         </p>
       ))
     }
     {
       tools.map((tool) => (
-        <p class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan">
+        <p class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan">
           {tool}
         </p>
       ))
