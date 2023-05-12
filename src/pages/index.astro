@@ -14,22 +14,24 @@ const companies: CompanyProps[] = json.map((company) => ({
 
 <Layout title="Frontend Mentor | Job Listings">
   <main class="overflow-hidden font-League_Spartan">
-    <ul class="mt-14 grid md:mt-[75px]">
-      <!-- {
+    <ul
+      class="mx-auto mt-14 grid w-[calc(325vw/3.75)] min-w-[325px] gap-y-10 md:mt-[75px]"
+    >
+      {
         !!companies &&
           companies.map((something: CompanyProps) => (
             <li>
               <Company {...something} />
             </li>
           ))
-      } -->
-      {
+      }
+      <!-- {
         !!companies && (
           <li class="mx-auto min-w-[325px] w-[calc(325vw/3.75)]">
             <Company {...companies[0]} />
           </li>
         )
-      }
+      } -->
     </ul>
   </main>
 </Layout>

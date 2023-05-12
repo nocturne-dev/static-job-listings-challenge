@@ -40,8 +40,10 @@ const {
     <img class="w-full rounded-full" src={logo} alt={company} />
   </figure>
 
-  <article class="grid auto-cols-max grid-flow-col items-center gap-x-6">
-    <h1 class="py-2 text-base leading-none text-desaturated-dark-cyan">
+  <article class="grid auto-cols-max grid-flow-col gap-x-6">
+    <h1
+      class="items-center py-[10px] text-base leading-none text-desaturated-dark-cyan"
+    >
       {company}
     </h1>
 
@@ -49,13 +51,13 @@ const {
       (isNew || isFeatured) && (
         <div class="grid auto-cols-max grid-flow-col items-center gap-x-2">
           {isNew && (
-            <p class="justify-self-start rounded-2xl bg-desaturated-dark-cyan p-2 text-base leading-none text-white">
-              NEW!
+            <p class="rounded-2xl bg-desaturated-dark-cyan p-[10px] text-base leading-none text-white">
+              New!
             </p>
           )}
           {isFeatured && (
-            <p class="justify-self-start rounded-2xl bg-very-dark-grayish-cyan p-2 text-base leading-none text-white">
-              FEATURED
+            <p class="rounded-2xl bg-very-dark-grayish-cyan p-[10px] text-base leading-none text-white">
+              Featured
             </p>
           )}
         </div>
@@ -64,7 +66,7 @@ const {
   </article>
 
   <article class="mt-4">
-    <p class="text-base leading-none text-very-dark-grayish-cyan">{position}</p>
+    <h2 class="text-base leading-none text-very-dark-grayish-cyan">{position}</h2>
   </article>
 
   <article
@@ -79,7 +81,7 @@ const {
 
   <hr class="mt-6" />
 
-  <article class="mt-4 grid grid-flow-col grid-cols-[repeat(auto-fill,56px)] gap-4">
+  <article class="mt-4 flex flex-wrap gap-4">
     <p
       class="rounded-lg bg-light-grayish-cyan-fg p-[10px] text-base leading-none text-desaturated-dark-cyan"
     >
