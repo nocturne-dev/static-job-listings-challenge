@@ -1,4 +1,5 @@
 ---
+import FilterButton from "./FilterButton.astro";
 import Card from "./Card.astro";
 
 export type Props = {
@@ -96,29 +97,11 @@ const {
   <article
     class="mt-4 flex flex-row flex-wrap content-start gap-4 md:mt-0 md:content-center md:justify-end md:text-end"
   >
-    <p
-      class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan"
-    >
-      {role}
-    </p>
-    <p
-      class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan"
-    >
-      {level}
-    </p>
-    {
-      languages.map((language) => (
-        <p class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan">
-          {language}
-        </p>
-      ))
-    }
-    {
-      tools.map((tool) => (
-        <p class="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan">
-          {tool}
-        </p>
-      ))
-    }
+    <FilterButton label={role} />
+    <FilterButton label={level} />
+
+    {languages.map((language) => <FilterButton label={language} />)}
+    
+    {tools.map((tool) => <FilterButton label={tool} />)}
   </article>
 </Card>

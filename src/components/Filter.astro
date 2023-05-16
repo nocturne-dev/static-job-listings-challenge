@@ -1,0 +1,23 @@
+---
+import FilterButton from "./FilterButton.astro";
+---
+
+<section
+  class="grid grid-flow-col justify-between gap-6 rounded-md bg-white px-6 py-5"
+>
+  <menu class="flex flex-row flex-wrap gap-4">
+    <li>
+      <FilterButton label={"Frontend"} canRemove={true} />
+    </li>
+    <li>
+      <FilterButton label={"CSS"} canRemove={true} />
+    </li>
+    <li>
+      <FilterButton label={"JavaScript"} canRemove={true} />
+    </li>
+  </menu>
+  <button
+    class="text-dark-grayish-cyan hover:text-desaturated-dark-cyan hover:underline"
+    >Clear</button
+  >
+</section>
