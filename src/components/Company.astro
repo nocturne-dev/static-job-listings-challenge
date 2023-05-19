@@ -1,5 +1,5 @@
 ---
-import FilterButton from "./FilterButton.astro";
+import FilterButton from "./FilterButton";
 import Card from "./Card.astro";
 
 export type Props = {
@@ -97,11 +97,19 @@ const {
   <article
     class="mt-4 flex flex-row flex-wrap content-start gap-4 md:mt-0 md:content-center md:justify-end md:text-end"
   >
-    <FilterButton label={role} />
-    <FilterButton label={level} />
+    <FilterButton label={role} canRemove={false} client:load />
+    <FilterButton label={level} canRemove={false} client:load />
 
-    {languages.map((language) => <FilterButton label={language} />)}
-    
-    {tools.map((tool) => <FilterButton label={tool} />)}
+    {
+      languages.map((language) => (
+        <FilterButton label={language} canRemove={false} client:load />
+      ))
+    }
+
+    {
+      tools.map((tool) => (
+        <FilterButton label={tool} canRemove={false} client:load />
+      ))
+    }
   </article>
 </Card>

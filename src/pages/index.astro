@@ -4,7 +4,8 @@ import Company, {
   type Props as CompanyProps,
 } from "../components/Company.astro";
 import json from "../../data.json";
-import Filter from "../components/Filter.astro";
+import Filter from "../components/Filter";
+import FilterContextProvider from "../context/FilterContext";
 
 const companies: CompanyProps[] = json.map((company) => ({
   isNew: company.new,
@@ -14,20 +15,20 @@ const companies: CompanyProps[] = json.map((company) => ({
 ---
 
 <Layout title="Frontend Mentor | Job Listings">
-  <main class="relative min-w-[375px] font-League_Spartan">
-    <article class="mx-auto -mt-9 w-[calc(325vw/3.75)] min-w-[325px]">
-      <Filter />
-    </article>
+  <FilterContextProvider client:load>
+    <main class="relative min-w-[375px] font-League_Spartan">
+      <Filter client:visible />
 
-    <menu class="mt-14 grid gap-y-10 md:mt-[75px]">
-      {
-        !!companies &&
-          companies.map((company: CompanyProps) => (
-            <li class="mx-auto w-[calc(325vw/3.75)] min-w-[325px]">
-              <Company {...company} />
-            </li>
-          ))
-      }
-    </menu>
-  </main>
+      <menu class="mt-14 grid gap-y-10 md:mt-[75px]">
+        {
+          !!companies &&
+            companies.map((company: CompanyProps) => (
+              <li class="mx-auto w-[calc(325vw/3.75)] min-w-[325px]">
+                <Company {...company} />
+              </li>
+            ))
+        }
+      </menu>
+    </main>
+  </FilterContextProvider>
 </Layout>
