@@ -6,8 +6,12 @@ module.exports = {
 
   theme: {
     extend: {
+      boxShadow: {
+        card: "0 25px 50px -12px hsla(180,29%,50%,25%)",
+      },
+
       colors: {
-		"attribution": "hsl(228,45%,44%)",
+        attribution: "hsl(228,45%,44%)",
         "desaturated-dark-cyan": "hsl(180,29%,50%)",
         "light-grayish-cyan-bg": "hsl(180,52%,96%)",
         "light-grayish-cyan-fg": "hsl(180,31%,95%)",
