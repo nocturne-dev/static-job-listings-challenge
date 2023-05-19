@@ -1,8 +1,10 @@
-import { useContext } from "react";
-import { FilterContext, FilterProps } from "../context/FilterContext";
+import type { MouseEvent } from "react";
+import { useStore } from "@nanostores/react";
+import { filterItems, isHidden, type FilterProps } from "../stores/FilterStore";
 
 export default function FilterButton({ label, canRemove }: FilterProps) {
-  const { removeFilter, addFilter } = useContext(FilterContext);
+  const $filterItems = useStore(filterItems);
+  const $isHidden = useStore(isHidden);
 
   return canRemove ? (
     <article className="grid grid-flow-col">
@@ -12,7 +14,12 @@ export default function FilterButton({ label, canRemove }: FilterProps) {
       <button
         type="button"
         className="text-bold rounded-r-lg bg-desaturated-dark-cyan px-2 py-[10px] text-base leading-none text-white hover:bg-very-dark-grayish-cyan"
-        onClick={() => removeFilter({ label, canRemove })}
+        onClick={(event: MouseEvent) => {
+          event.preventDefault();
+          let items = $filterItems.filter((filter) => filter.label !== label);
+          filterItems.set(items);
+          isHidden.set((items.length <= 0));
+        }}
       >
         X
       </button>
@@ -21,9 +28,21 @@ export default function FilterButton({ label, canRemove }: FilterProps) {
     <button
       type="button"
       className="rounded-lg bg-light-grayish-cyan-fg px-2 py-[10px] text-base leading-none text-desaturated-dark-cyan hover:bg-desaturated-dark-cyan hover:text-white"
-      onClick={() => {
-        console.log("Hello!");
-        addFilter({ label, canRemove })
+      onClick={(event: MouseEvent) => {
+        event.preventDefault();
+
+        let filterItem = $filterItems.find(
+          (item) =>
+            item.label.toUpperCase().trim() === label.toUpperCase().trim()
+        );
+
+        if (!filterItem) {
+          filterItems.set([...$filterItems, { label, canRemove }]);
+
+          if($isHidden) {
+            isHidden.set(false);
+          }
+        }
       }}
     >
       {label}
