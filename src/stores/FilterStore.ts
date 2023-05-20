@@ -1,5 +1,5 @@
 import { atom, map } from "nanostores";
-import type { CompanyProps } from "../components/Company";
+import type { CompanyProps } from "../islands/Company";
 import json from "../../data.json";
 
 export const allCompanies: CompanyProps[] = json.map((company) => ({
