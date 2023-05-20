@@ -1,6 +1,6 @@
 import type { MouseEvent } from "react";
 import { useStore } from "@nanostores/react";
-import { filterItems, isHidden, type FilterProps } from "../stores/FilterStore";
+import { filterItems, isHidden, type FilterProps, filterCompanies, refreshCompanies } from "../stores/FilterStore";
 
 export default function FilterButton({ label, canRemove }: FilterProps) {
   const $filterItems = useStore(filterItems);
@@ -19,6 +19,7 @@ export default function FilterButton({ label, canRemove }: FilterProps) {
           let items = $filterItems.filter((filter) => filter.label !== label);
           filterItems.set(items);
           isHidden.set((items.length <= 0));
+          filterCompanies.set(refreshCompanies());
         }}
       >
         X
@@ -33,7 +34,7 @@ export default function FilterButton({ label, canRemove }: FilterProps) {
 
         let filterItem = $filterItems.find(
           (item) =>
-            item.label.toUpperCase().trim() === label.toUpperCase().trim()
+            item.label === label
         );
 
         if (!filterItem) {
@@ -42,6 +43,8 @@ export default function FilterButton({ label, canRemove }: FilterProps) {
           if($isHidden) {
             isHidden.set(false);
           }
+
+          filterCompanies.set(refreshCompanies());
         }
       }}
     >

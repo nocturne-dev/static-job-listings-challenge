@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { isHidden, filterItems } from "../stores/FilterStore";
+import { isHidden, filterItems, filterCompanies, refreshCompanies } from "../stores/FilterStore";
 
 import FilterButton from "./FilterButton";
 
@@ -27,6 +27,7 @@ export default function Filter() {
         onClick={() => {
           filterItems.set([]);
           isHidden.set(true);
+          filterCompanies.set(refreshCompanies());
         }}
       >
         Clear
